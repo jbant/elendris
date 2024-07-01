@@ -1,4 +1,4 @@
-# Astro Starter Kit: Minimal
+# Elendris.cz
 
 ```sh
 npm create astro@latest -- --template minimal
