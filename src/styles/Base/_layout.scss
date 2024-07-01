@@ -1,0 +1,9 @@
+@import "global";
+
+header {
+  display: grid;
+  place-items: center;
+  min-block-size: 100svb;
+  font-size: clamp(2rem, 8svb, 6rem);
+  color: $color-white;
+}

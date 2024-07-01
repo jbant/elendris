@@ -1,0 +1,14 @@
+---
+import Helmet from "../components/helmet/Helmet.astro";
+import Header from "../components/header/Header.astro";
+---
+
+<html lang="en">
+	<Helmet title="Elendris | Ubytování u kostela" description="Útulné ubytování v rodinné atmosféře" />
+	<body>
+		<Header />
+		<main>
+			<slot />
+		</main>
+	</body>
+</html>
