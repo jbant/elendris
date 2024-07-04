@@ -1,4 +1,5 @@
 @use "../../styles/base/mixins/index" as *;
+@use "../../styles/base/functions/index" as *;
 @use "../../styles/base/variables/index" as *;
 
 @mixin create-nav {
@@ -20,6 +21,13 @@
         &__top,
         &__bottom {
             @include flex-set(flex, row, nowrap, $gap-m, center, space-between);
+        }
+
+        &__logo {
+            > img {
+                display: block;
+                inline-size: px-to-rem(80);
+            }
         }
     }
 
