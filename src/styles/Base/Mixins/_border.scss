@@ -1,41 +1,47 @@
+@use '../functions/get-color' as *;
+@use '../variables/sizes' as *;
 
-@mixin border(
-  $var-direction: 'def',
-  $var-width: var(--border-width),
-  $var-color: var(--color-border)
-) {
-  @if $var-direction == 'def' {
-    border: $var-width solid $var-color;
-  }
+$radiusList: (
+  xs: $radius-xs,
+  s: $radius-s,
+  m: $radius-m,
+  l: $radius-l,
+  circle: $radius-circle,
+  full: $radius-full,
+);
 
-  @if $var-direction == 'top' {
-    border-top: $var-width solid $var-color;
-  }
-
-  @if $var-direction == 'right' {
-    border-right: $var-width solid $var-color;
-  }
-
-  @if $var-direction == 'left' {
-    border-left: $var-width solid $var-color;
-  }
-  @if $var-direction == 'bottom' {
-    border-bottom: $var-width solid $var-color;
-  }
-
-  @if $var-direction == 'tb' {
-    border-top: $var-width solid $var-color;
-    border-bottom: $var-width solid $var-color;
-  }
-
-  @if $var-direction == 'lr' {
-    border-right: $var-width solid $var-color;
-    border-left: $var-width solid $var-color;
-  }
+@mixin border-set($top: $border-width, $right: $border-width, $bottom: $border-width, $left: $border-width, $style: solid, $color: var(--bs-gray-300)) {
+  border-style: $style;
+  border-color: $color;
+  border-top-width: $top;
+  border-right-width: $right;
+  border-bottom-width: $bottom;
+  border-left-width: $left;
 }
 
-@mixin box-shadow {
-  -moz-box-shadow: 0px 0px 16px 3px rgba(0, 0, 0, 0.1);
-  box-shadow: 0px 0px 16px 3px rgba(0, 0, 0, 0.1);
-  webkit-box-shadow: 0px 0px 16px 3px rgba(0, 0, 0, 0.1);
+@mixin border-set-x($width: $border-width, $style: solid, $color: var(--bs-gray-300)) {
+  border: $width $style $color;
+  border-top-width: 0;
+  border-bottom-width: 0;
+}
+
+@mixin border-set-y($width: $border-width, $style: solid, $color: var(--bs-gray-300)) {
+  border: $width $style $color;
+  border-right-width: 0;
+  border-left-width: 0;
+}
+
+@mixin border-set-all($width: $border-width, $style: solid, $color: var(--bs-gray-300)) {
+  border: $width $style $color;
+}
+
+@mixin border-radius($size) {
+  @if map_has_key($radiusList, $size) {
+    $size: map_get($radiusList, $size);
+    border-radius: $size;
+  }
+
+  @else {
+    border-radius: $size;
+  }
 }

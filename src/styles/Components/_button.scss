@@ -1,89 +1,58 @@
-@import "../Base/global";
+@use '../base/mixins/index' as *;
+@use '../base/variables/index' as *;
 
-.button {
-    --btn-color: #{$color-black};
-    --btn-bg-color: #{$color-white};
-    --btn-padding-x: #{$gap-xxl};
-    --btn-padding-y: #{$gap-l};
-    --btn-width: 20rem;
-    --btn-font-size: clamp(#{$gap-l}, 2vh, 18px);
-    --icon-size: #{$gap-m};
-    @include flex-set(inline-flex, row, nowrap, $gap-l, center, center, center);
-    @include border("def", 1px, var(--color-trans));
-    min-width: var(--btn-width);
-    padding-block: var(--btn-padding-y);
-    padding-inline: var(--btn-padding-x);
-    background-color: var(--btn-bg-color);
-    border-radius: 0.25em;
-    font-family: $font-text;
-    font-size: var(--btn-font-size);
-    font-weight: var(--btn_font-weight, 600);
-    line-height: 1;
-    color: var(--btn-color);
-    text-decoration: none;
-    text-transform: var(--btn-text-transform, uppercase);
-    white-space: nowrap;
-    translate: 0 var(--btn_trans-y, 0);
-    transition:
-        box-shadow var(--trans-time) var(--trans-fnc),
-        translate var(--trans-time) var(--trans-fnc);
-    cursor: pointer;
-    box-shadow: 0 0 var(--btn-shadow_size, $gap-m) 0 var(--btn_shadow-color, var(--color-trans));
+@mixin create-button {
 
-    @include res-max-laptop-s {
-        --btn-padding-x: #{$gap-l};
-        --btn-padding-y: 1.2rem;
-        --btn-font-size: medium;
-        --btn-width: 16rem;
-    }
+    .button {
+        --shadow-alpha: .3;
+        --button-min-width: 18rem;
+        --button-border-width: .2rem;
+        --button-background: var(--color-primary);
+        --button-color: #{$color-white};
+        --button-border-color: #{$color-primary};
+        --button-padding: clamp(#{$gap-m}, 5vw, #{$gap-l}) clamp(#{$gap-l}, 5vw, #{$gap-xl});
+        --button-font-size: clamp(#{$gap-s}, 5dvi, #{$gap-l});
+        --button-cursor: pointer;
+        --button-outline: none;
 
-    @include hover {
-        &:not([aria-disabled="true"], disabled) {
-            --btn_shadow-color: #{$color-white--trans};
-            --btn_trans-y: calc(#{$gap-s} * -1);
-        }
-    }
-    &:is(.active) {
-        --btn_shadow-color: #{$color-primary};
-        --btn-shadow_size: #{$gap-xxl};
-        --btn_font-weight: 900;
-        --btn-bg-color: #{$color-primary};
-    }
-
-    &--s {
-        --btn-padding-x: #{$gap-l};
-        --btn-padding-y: #{$gap-m};
-        --btn-width: unset;
-        --btn-font-size: clamp(14px, 2vh, #{$gap-l});
-
-        @include res-max-mobile-l {
-            --btn-font-size: 14px;
-            .icon {
-                --icon-size: 14px;
-            }
+        &--secondary {
+            --button-color: #{$color-white};
+            --button-border-color: #{$color-secondary};
+            --button-background: #{$color-secondary};
         }
     }
 
-    &--xs {
-        --btn-padding-x: #{$gap-m};
-        --btn-padding-y: #{$gap-s};
-        --btn-width: unset;
-        --btn-text-transform: initial;
-        --btn-font-size: small;
+    .button {
+        display: inline-flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: center;
+        width: auto;
+        min-width: var(--button-min-width);
+        gap: $gap-m;
+        padding: var(--button-padding);
+        background-color: var(--button-background);
+        border-radius: 100vmax;
+        font-family: var(--font-title);
+        font-size: var(--button-font-size);
+        color: var(--button-color);
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: background-color $trans-time ease-in-out;
+        cursor: pointer;
 
-        @include hover {
-            --btn_trans-y: -2px;
+        &:focus:not(:focus-visible) {
+            outline: var(--button-outline);
         }
-    }
 
-    &:is([aria-disabled="true"], disabled) {
-        --btn-color: #{$color-disabled};
-        --btn-bg-color: #{$color-bg-disabled};
-        pointer-events: none;
-    }
+        @include mq-hover {
+            --button-background: var(--color-primary--hover);
+        }
 
-    > :is(span, small) {
-        font-weight: inherit;
-        white-space: nowrap;
+        >.icon {
+            --icon-size: 1.2em;
+            fill: var(--button-color);
+        }
     }
 }

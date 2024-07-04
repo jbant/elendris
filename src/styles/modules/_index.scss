@@ -1,0 +1,7 @@
+@use "container" as *;
+@use "section" as *;
+
+@mixin create-modules {
+    @include create-container;
+    @include create-section;
+}

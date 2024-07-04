@@ -1,11 +1,27 @@
-﻿// Base
-@import "Base/root";
-@import "Base/default";
-@import "Base/layout";
-@import "Base/shared-classes";
-@import "Base/typography";
+﻿@use "base/layers" as *;
+@use "base/reset" as *;
+@use "base/root" as *;
+@use "components/index" as *;
+@use "modules/index" as *;
+@use "utilities/classes" as *;
 
-// Components
-@import "Components/button";
+@at-root {
+    @include create-root;
+    @include create-layers;
 
-// Modules
+    @layer base {
+        @include reset;
+    }
+
+    @layer components {
+        @include create-components;
+    }
+
+    @layer modules {
+        @include create-modules;
+    }
+
+    @layer utilities {
+        @include create-utilities;
+    }
+}

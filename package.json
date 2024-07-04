@@ -20,6 +20,9 @@
     "@astrojs/check": "^0.7.0",
     "@fancyapps/ui": "^5.0.36",
     "astro": "^4.11.3",
+    "astro-i18next": "^1.0.0-beta.21",
+    "i18next": "^23.11.5",
+    "i18next-fs-backend": "^2.3.1",
     "typescript": "^5.5.2"
   },
   "devDependencies": {

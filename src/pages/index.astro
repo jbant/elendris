@@ -1,11 +1,14 @@
 ---
 import Helmet from "../components/helmet/Helmet.astro";
 import Header from "../components/header/Header.astro";
+import Navigation from "../components/navigation/Navigation.astro";
+import i18next from "i18next";
 ---
 
-<html lang="en">
+<html lang={i18next.language}>
 	<Helmet title="Elendris | Ubytování u kostela" description="Útulné ubytování v rodinné atmosféře" />
 	<body>
+		<Navigation />
 		<Header />
 		<main>
 			<slot />

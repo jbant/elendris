@@ -1,0 +1,40 @@
+@use "../../styles/base/mixins/index" as *;
+@use "../../styles/base/variables/index" as *;
+
+@mixin create-nav {
+    nav {
+        display: grid;
+        padding-inline: $gap-2xl;
+        padding-block: $gap-m;
+        position: sticky;
+        top: 0;
+        inline-size: 100%;
+        isolation: isolate;
+
+        hr {
+            inline-size: 100%;
+        }
+    }
+
+    .nav {
+        &__top,
+        &__bottom {
+            @include flex-set(flex, row, nowrap, $gap-m, center, space-between);
+        }
+    }
+
+    .menu {
+        @include flex-set(flex, row, nowrap, $gap-l, center);
+        padding: 0;
+        margin: 0;
+        list-style: none;
+
+        a {
+            text-decoration: var(--nav-item_text-decor, none);
+
+            @include mq-hover {
+                --nav-item_text-decor: underline;
+            }
+        }
+    }
+}
