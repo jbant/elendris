@@ -32,13 +32,21 @@
     }
 
     .menu {
-        @include flex-set(flex, row, nowrap, $gap-l, center);
-        padding: 0;
+        @include flex-set(inline-flex, row, nowrap, $gap-l, center);
         margin: 0;
         list-style: none;
 
+        &[data-sticky="true"] {
+            background-color: hsl(from var(--color-secondary) h s l / 0.15);
+            backdrop-filter: blur($gap-m);
+            padding-block: $gap-l;
+            padding-inline: $gap-xl;
+            border-radius: 100vmax;
+        }
+
         a {
             text-decoration: var(--nav-item_text-decor, none);
+            line-height: 1.7;
 
             @include mq-hover {
                 --nav-item_text-decor: underline;

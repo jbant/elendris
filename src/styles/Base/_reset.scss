@@ -1,5 +1,4 @@
 @mixin reset {
-
     *,
     *::before,
     *::after {
@@ -11,9 +10,10 @@
     }
 
     body {
-        min-block-size: 100dvb;
+        min-block-size: 100svb;
         margin: 0;
         overflow-x: hidden;
+        font-family: system-ui;
     }
 
     textarea {
