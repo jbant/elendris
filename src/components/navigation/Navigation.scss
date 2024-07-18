@@ -28,7 +28,7 @@
         &__logo {
             > img {
                 display: block;
-                inline-size: px-to-rem(80);
+                inline-size: px-to-rem(50px);
             }
         }
     }
@@ -37,8 +37,10 @@
         @include flex-set(inline-flex, row, nowrap, $gap-l, center);
         margin: 0;
         list-style: none;
+        --nav_color: #{$color-black};
 
         &[data-sticky="true"] {
+            --nav_color: #{$color-black};
             background-color: hsl(from var(--color-secondary) h s l / 0.15);
             backdrop-filter: blur($gap-m);
             padding-block: calc($gap-l - $gap-s);
@@ -54,7 +56,7 @@
         a {
             text-decoration: var(--nav-item_text-decor, none);
             line-height: 1.7;
-            color: black;
+            color: var(--nav_color);
 
             @include mq-hover {
                 --nav-item_text-decor: underline;

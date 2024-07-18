@@ -10,5 +10,21 @@
         <button>btn</button>
       </div>
     </div>
+    <div class="header__anim">
+      <div class="anim">
+        <div class="anim__large" data-scroll-anim="false"></div>
+      </div>
+    </div>
   </div>
 </header>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const animLargeElement = document.querySelector(".anim__large");
+    if (animLargeElement !== null) {
+      setTimeout(() => {
+        animLargeElement.setAttribute("data-scroll-anim", "true");
+      }, 500);
+    }
+  });
+</script>
