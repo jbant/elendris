@@ -4,5 +4,9 @@
 @mixin create-section {
     section {
         padding-block: 5dvb;
+        block-size: 100svb;
+        &:nth-child(odd) {
+            background-color: var(--color-secondary);
+        }
     }
 }

@@ -7,7 +7,9 @@
         display: grid;
         padding-inline: $gap-2xl;
         padding-block: $gap-m;
-        position: sticky;
+        position: absolute;
+        z-index: 9999;
+        isolation: isolate;
         top: 0;
         inline-size: 100%;
         isolation: isolate;
@@ -39,18 +41,31 @@
         &[data-sticky="true"] {
             background-color: hsl(from var(--color-secondary) h s l / 0.15);
             backdrop-filter: blur($gap-m);
-            padding-block: $gap-l;
+            padding-block: calc($gap-l - $gap-s);
             padding-inline: $gap-xl;
             border-radius: 100vmax;
+            position: fixed;
+            top: 0;
+            left: 50%;
+            translate: -50% -100%;
+            animation: showNav 0.3s forwards;
         }
 
         a {
             text-decoration: var(--nav-item_text-decor, none);
             line-height: 1.7;
+            color: black;
 
             @include mq-hover {
                 --nav-item_text-decor: underline;
             }
         }
+    }
+}
+
+
+@keyframes showNav {
+    to {
+        translate: -50% 3svb;
     }
 }

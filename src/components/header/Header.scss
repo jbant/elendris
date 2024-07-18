@@ -1,0 +1,40 @@
+@use "../../styles/base/mixins/index" as *;
+@use "../../styles/base/functions/index" as *;
+@use "../../styles/base/variables/index" as *;
+
+@mixin create-header {
+  header {
+    min-block-size: 100svb;
+    display: grid;
+    grid-template-rows: 1fr;
+  }
+
+  .header {
+    &__container {
+      @include grid-columns(grid, minmax($gap-2xl, 8fr) minmax($gap-2xl, 5fr), 0, stretch, flex-start, stretch);
+    }
+
+    &__content {
+      display: grid;
+      align-items: center;
+      align-content: center;
+      row-gap: clamp($gap-xl, 5svb, $gap-3xl);
+    }
+
+    &__title{
+      display: grid;
+      gap: $gap-m;
+      align-items: center;
+
+      font-size: clamp($gap-2xl, 8svb, 6.5rem);
+      line-height: 1;
+      h1{
+        translate: num-neg($gap-l);
+      }
+
+      small{
+        font-size: .3em;
+      }
+    }
+  }
+}
