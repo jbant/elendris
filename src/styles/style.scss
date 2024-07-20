@@ -19,6 +19,7 @@
 
     @layer modules {
         @include create-modules;
+        @include create-modules;
     }
 
     @layer utilities {

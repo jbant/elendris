@@ -1,0 +1,80 @@
+@use "../../styles/base/mixins/index" as *;
+@use "../../styles/base/functions/index" as *;
+@use "../../styles/base/variables/index" as *;
+
+@mixin create-header {
+  header {
+    min-block-size: 100svb;
+    display: grid;
+    grid-template-rows: 1fr;
+  }
+
+  .header {
+    &__container {
+      @include grid-columns(grid, minmax($gap-2xl, 8fr) minmax($gap-2xl, 5fr), 0, stretch, flex-start, stretch);
+    }
+
+    &__content,
+    &__anim {
+      display: grid;
+      align-items: center;
+      align-content: center;
+      row-gap: clamp($gap-xl, 5svb, $gap-3xl);
+    }
+
+    &__title {
+      display: grid;
+      gap: $gap-m;
+      align-items: center;
+
+      font-size: clamp($gap-2xl, 8svb, 6.5rem);
+      line-height: 1;
+      h1 {
+        translate: num-neg($gap-l);
+      }
+
+      small {
+        font-size: 0.3em;
+      }
+    }
+  }
+
+  .anim {
+    &__large {
+      clip-path: polygon(64% 0, 100% 64%, 13% 100%, 0 33%);
+      inline-size: 60svb;
+      block-size: 65svb;
+      background-image: url(https://elendris.cz/img/gril.webp);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center right;
+      animation: showLargeImg 0.25s forwards 0.2s;
+      transform-origin: center;
+      scale: 0;
+
+      &[data-scroll-anim="true"]{
+        scale: 1;
+        animation: animLargeImg linear;
+        animation-timeline: view();
+        animation-range-start: 83svb;
+        animation-range-end: cover;
+      }
+    }
+
+    &__small{
+
+    }
+  }
+}
+
+@keyframes showLargeImg {
+  to {
+    scale: 1;
+  }
+}
+
+@keyframes animLargeImg {
+  to {
+    clip-path: polygon(31% 0, 100% 34%, 41% 100%, 0 53%);
+  }
+}

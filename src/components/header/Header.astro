@@ -1,5 +1,30 @@
 <header>
-    <div class="container">
+  <div class="container header__container">
+    <div class="header__content">
+      <div class="header__title">
         <h1>Elendris</h1>
+        <small>Útulné ubytování v rodinné atmosféře</small>
+      </div>
+      <div class="d-flex ai-c gap-l">
+        <button>btn</button>
+        <button>btn</button>
+      </div>
     </div>
+    <div class="header__anim">
+      <div class="anim">
+        <div class="anim__large" data-scroll-anim="false"></div>
+      </div>
+    </div>
+  </div>
 </header>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const animLargeElement = document.querySelector(".anim__large");
+    if (animLargeElement !== null) {
+      setTimeout(() => {
+        animLargeElement.setAttribute("data-scroll-anim", "true");
+      }, 500);
+    }
+  });
+</script>

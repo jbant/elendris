@@ -1,5 +1,4 @@
 @mixin reset {
-
     *,
     *::before,
     *::after {
@@ -11,8 +10,9 @@
     }
 
     body {
-        min-block-size: 100dvb;
+        min-block-size: 100svb;
         margin: 0;
+        font-family: system-ui;
         overflow-x: hidden;
     }
 
@@ -25,7 +25,7 @@
         font-style: normal;
     }
 
-    h1 {
+    h1, h2, h3, h4, h5, h6 {
         margin: 0;
     }
 }

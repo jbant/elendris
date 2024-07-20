@@ -7,7 +7,9 @@
         display: grid;
         padding-inline: $gap-2xl;
         padding-block: $gap-m;
-        position: sticky;
+        position: absolute;
+        z-index: 9999;
+        isolation: isolate;
         top: 0;
         inline-size: 100%;
         isolation: isolate;
@@ -26,23 +28,46 @@
         &__logo {
             > img {
                 display: block;
-                inline-size: px-to-rem(80);
+                inline-size: px-to-rem(50px);
             }
         }
     }
 
     .menu {
-        @include flex-set(flex, row, nowrap, $gap-l, center);
-        padding: 0;
+        @include flex-set(inline-flex, row, nowrap, $gap-l, center);
         margin: 0;
         list-style: none;
+        --nav_color: #{$color-black};
+
+        &[data-sticky="true"] {
+            --nav_color: #{$color-black};
+            background-color: hsl(from var(--color-secondary) h s l / 0.15);
+            backdrop-filter: blur($gap-m);
+            padding-block: calc($gap-l - $gap-s);
+            padding-inline: $gap-xl;
+            border-radius: 100vmax;
+            position: fixed;
+            top: 0;
+            left: 50%;
+            translate: -50% -100%;
+            animation: showNav 0.3s forwards;
+        }
 
         a {
             text-decoration: var(--nav-item_text-decor, none);
+            line-height: 1.7;
+            color: var(--nav_color);
 
             @include mq-hover {
                 --nav-item_text-decor: underline;
             }
         }
+    }
+}
+
+
+@keyframes showNav {
+    to {
+        translate: -50% 3svb;
     }
 }

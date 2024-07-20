@@ -33,6 +33,13 @@ $displayTypes: (
 );
 
 @mixin create-utilities {
+  .d {
+    @each $type, $value in $displayTypes {
+      &-#{$type} {
+        display: #{$value};
+      }
+    }
+  }
 
   // flex direction
   .fd {
@@ -47,9 +54,7 @@ $displayTypes: (
 
   //paddings
   .p {
-
-    @each $type,
-    $value in $gapTypes {
+    @each $type, $value in $gapTypes {
       &-#{$type} {
         padding: #{$value};
       }
@@ -70,9 +75,7 @@ $displayTypes: (
 
   //margins
   .m {
-
-    @each $type,
-    $value in $gapTypes {
+    @each $type, $value in $gapTypes {
       &-#{$type} {
         padding: #{$value};
       }
@@ -97,9 +100,7 @@ $displayTypes: (
 
   //gaps
   .gap {
-
-    @each $type,
-    $value in $gapTypes {
+    @each $type, $value in $gapTypes {
       &-#{$type} {
         gap: #{$value};
       }
@@ -108,9 +109,7 @@ $displayTypes: (
 
   // justifi content
   .jc {
-
-    @each $type,
-    $value in $alignTypes {
+    @each $type, $value in $alignTypes {
       &-#{$type} {
         justify-content: $value;
       }
@@ -119,9 +118,7 @@ $displayTypes: (
 
   // align items
   .ai {
-
-    @each $type,
-    $value in $alignTypes {
+    @each $type, $value in $alignTypes {
       &-#{$type} {
         align-items: $value;
       }
@@ -133,34 +130,18 @@ $displayTypes: (
   }
 
   .col-span {
-    @include grid-col-span(1);
-
-    &-2 {
-      @include grid-col-span(2);
-    }
-
-    &-3 {
-      @include grid-col-span(3);
-    }
-
-    &-4 {
-      @include grid-col-span(4);
+    @for $i from 1 through 12 {
+      &-#{$i} {
+        @include grid-col-span($i);
+      }
     }
   }
 
-  .row-span {
-    @include grid-row-span(1);
-
-    &-2 {
-      @include grid-row-span(2);
-    }
-
-    &-3 {
-      @include grid-row-span(3);
-    }
-
-    &-4 {
-      @include grid-row-span(4);
+  .rrow-span {
+    @for $i from 1 through 12 {
+      &-#{$i} {
+        @include grid-row-span($i);
+      }
     }
   }
 }
