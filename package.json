@@ -12,7 +12,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "scss": "sass src/styles/style.scss | postcss -o public/css/style.css",
-    "scss:watch": "chokidar src/styles/**/*.scss -c pnpm scss",
+    "scss:watch": "node watch-scss.js",
     "stylelint": "stylelint --fix src/styles/**/*.scss --custom-syntax postcss-scss",
     "watch": "pnpm stylelint && pnpm scss:watch"
   },
@@ -21,6 +21,7 @@
     "@fancyapps/ui": "^5.0.36",
     "astro": "^4.11.3",
     "astro-i18next": "^1.0.0-beta.21",
+    "chokidar": "^3.6.0",
     "i18next": "^23.11.5",
     "i18next-fs-backend": "^2.3.1",
     "typescript": "^5.5.2"
