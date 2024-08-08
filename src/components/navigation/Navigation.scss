@@ -41,7 +41,7 @@
 
         &[data-sticky="true"] {
             --nav_color: #{$color-black};
-            background-color: hsl(from var(--color-secondary) h s l / 0.15);
+            background-color: hsl(from var(--color-secondary) h s l / 0.7);
             backdrop-filter: blur($gap-m);
             padding-block: calc($gap-l - $gap-s);
             padding-inline: $gap-xl;
@@ -57,6 +57,8 @@
             text-decoration: var(--nav-item_text-decor, none);
             line-height: 1.7;
             color: var(--nav_color);
+            text-transform: uppercase;
+            font-size: 18px;
 
             @include mq-hover {
                 --nav-item_text-decor: underline;
