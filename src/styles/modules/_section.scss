@@ -5,8 +5,5 @@
     section {
         block-size: 100svb;
         padding-block: 5svb;
-        &:nth-child(odd) {
-            background-color: var(--color-primary);
-        }
     }
 }

@@ -3,6 +3,7 @@ import Helmet from "../components/helmet/Helmet.astro";
 import Header from "../components/header/Header.astro";
 import Navigation from "../components/navigation/Navigation.astro";
 import i18next from "i18next";
+import Card from "../components/card/Card.astro";
 ---
 
 <html lang={i18next.language}>
@@ -12,7 +13,16 @@ import i18next from "i18next";
 		<Header />
 		<main>
 			<slot />
-			<section></section>
+			<section>
+				<div class="rooms">
+					<Card title="Dvoulůžkový pokoj" imgSrc="/images/rooms/rooms-1-1.webp" onClick={() => {console.log("Clicked 1")}} />
+					<Card title="Dvoulůžkový pokoj" imgSrc="/images/rooms/rooms-1-2.webp" onClick={() => console.log("Clicked 2")} />
+					<Card title="Dvoulůžkový pokoj" imgSrc="/images/rooms/rooms-1-3.webp" onClick={() => console.log("Clicked 3")} />
+					<Card title="Dvoulůžkový pokoj" imgSrc="/images/rooms/rooms-1-4.webp" onClick={() => console.log("Clicked 4")} />
+					<Card title="Dvoulůžkový pokoj" imgSrc="/images/rooms/rooms-1-5.webp" onClick={() => console.log("Clicked 5")} />
+					<Card title="Dvoulůžkový pokoj" imgSrc="/images/rooms/rooms-1-6.webp" onClick={() => console.log("Clicked 6")} />
+				</div>
+			</section>
 			<section></section>
 			<section></section>
 			<section></section>

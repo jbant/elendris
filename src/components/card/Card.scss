@@ -1,0 +1,51 @@
+@use "../../styles/base/mixins/index" as *;
+@use "../../styles/base/functions/index" as *;
+@use "../../styles/base/variables/index" as *;
+
+@mixin create-card {
+  .rooms {
+    @include grid-columns(grid, repeat(var(--rooms-count, 3), minmax($gap-3xl, 1fr)), 0, stretch);
+  }
+
+  .card {
+    position: relative;
+    display: grid;
+    place-items: center;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background-color: $color-primary;
+    border-width: 0;
+    cursor: pointer;
+
+    @include mq-hover{
+      --card-content_opacity: 1;
+      --card-img_blur: #{$gap-m};
+      --card-img_scale: 1.1;
+      --card-img_opacity: .75;
+    }
+
+    &__content {
+      @include flex-set(flex, column, nowrap, $gap-m, center, center, center);
+      opacity: var(--card-content_opacity, 0);
+      transition: opacity $trans-time $trans-fnc;
+      z-index: 2;
+    }
+
+    > img{
+      position: absolute;
+      display: block;
+      min-inline-size: 100%;
+      z-index: 1;
+      pointer-events: none;
+      filter: blur(var(--card-img_blur, 0));
+      scale: var(--card-img_scale, 1);
+      opacity: var(--card-img_opacity, 1);
+      transition: filter $trans-time $trans-fnc, scale $trans-time $trans-fnc, opacity $trans-time $trans-fnc;
+    }
+
+    strong {
+      color: $color-white;
+      font-size: $gap-2xl;
+    }
+  }
+}

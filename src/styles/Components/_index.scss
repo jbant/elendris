@@ -2,11 +2,13 @@
 @use "button" as *;
 @use "icon" as *;
 @use "link" as *;
+@use "../../components/card/Card" as *;
 @use "../../components/navigation/Navigation" as *;
 
 @mixin create-components {
     @include create-burger;
     @include create-button;
+    @include create-card;
     @include create-icon;
     @include create-link;
     @include create-nav;

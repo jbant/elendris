@@ -1,0 +1,18 @@
+---
+interface Props {
+    title: string;
+    imgSrc: string;
+    onClick: () => void;
+}
+
+const { title, imgSrc, onClick } = Astro.props;
+---
+
+<button class="card" onclick={`${onClick}`}>
+    <img src={imgSrc} alt={title} />
+
+    <div class="card__content">
+        <strong>{title}</strong>
+        <div class="btn btn--small">Vice informací</div>
+    </div>
+</button>
