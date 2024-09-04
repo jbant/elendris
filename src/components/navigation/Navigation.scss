@@ -41,7 +41,7 @@
 
         &[data-sticky="true"] {
             --nav_color: #{$color-black};
-            background-color: hsl(from var(--color-secondary) h s l / 0.15);
+            background-color: hsl(from var(--color-primary) h s l / 0.15);
             backdrop-filter: blur($gap-m);
             padding-block: calc($gap-l - $gap-s);
             padding-inline: $gap-xl;

@@ -1,5 +1,5 @@
-$font-text: azo-sans-web, sans-serif;
-$font-title: museo-sans, sans-serif;
+$font-text: system-ui, sans-serif;
+$font-title: system-ui, sans-serif;
 
 @mixin generate-fonts {
     --font-text: #{$font-text};

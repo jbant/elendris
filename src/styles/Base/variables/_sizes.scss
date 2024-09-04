@@ -16,7 +16,7 @@ $gap-3xl: calc($gap * 5);
 
 //border
 $border-width: 1px;
-$border-width-l: calc($border-width * 2);
+$border-width-2: calc($border-width * 2);
 $radius-xs: $gap-xs;
 $radius-s: $gap-s;
 $radius-m: $gap-m;
@@ -54,7 +54,7 @@ $width-desktop-4k: 3840px;
   --gap-2xl: #{$gap-2xl};
   --gap-3xl: #{$gap-3xl};
   --border-width: #{$border-width};
-  --border-width-l: #{$border-width-l};
+  --border-width-2: #{$border-width-2};
   --radius-s: #{$radius-s};
   --radius-m: #{$radius-m};
   --radius-l: #{$radius-l};

@@ -4,9 +4,9 @@
 
 @mixin create-icon {
     .icon {
-        --icon-size: #{$gap-l};
+        --icon_size: #{$gap-l};
         display: block;
-        inline-size: min(var(--icon-size), var(--icon-size));
+        inline-size: min(var(--icon_size), var(--icon_size));
         aspect-ratio: 1;
     }
 }

@@ -3,10 +3,10 @@
 
 @mixin create-section {
     section {
-        padding-block: 5dvb;
         block-size: 100svb;
+        padding-block: 5svb;
         &:nth-child(odd) {
-            background-color: var(--color-secondary);
+            background-color: var(--color-primary);
         }
     }
 }

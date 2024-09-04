@@ -19,16 +19,16 @@
       display: grid;
       align-items: center;
       align-content: center;
-      row-gap: clamp($gap-xl, 5svb, $gap-3xl);
+      row-gap: 5svb;
     }
 
     &__title {
       display: grid;
       gap: $gap-m;
       align-items: center;
-
       font-size: clamp($gap-2xl, 8svb, 6.5rem);
       line-height: 1;
+      
       h1 {
         translate: num-neg($gap-l);
       }

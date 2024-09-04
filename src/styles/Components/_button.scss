@@ -1,58 +1,69 @@
-@use '../base/mixins/index' as *;
-@use '../base/variables/index' as *;
+@use "../base/mixins/index" as *;
+@use "../base/variables/index" as *;
 
 @mixin create-button {
+  .btn {
+    @include flex-set(inline-flex, row, nowrap, var(--btn_gap, #{$gap-m}), center, center);
+    inline-size: auto;
+    min-inline-size: var(--btn_min-width, 12rem);
+    padding-block: var(--btn_pad-block, clamp(#{$gap-m}, 2.5svi, #{$gap-l}));
+    padding-inline: var(--btn_pad-inline, clamp(#{$gap-l}, 2.5svi, #{$gap-xl}));
+    background-color: var(--btn_bg, var(--color-primary));
+    border: var(--btn_border-width, var(--border-width-2)) solid var(--btn_border-color, var(--color-primary));
+    border-radius: var(--btn_border-radius, .5em);
+    font-family: var(--font-title);
+    font-size: var(--btn_font-size, clamp(#{$gap-s}, 5svb, #{$gap-l}));
+    font-weight: 500;
+    color: var(--btn_color, var(--color-white));
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    translate: 0 var(--btn_translate-y, 0);
+    transition: 
+      background-color var(--trans-time) var(--trans-fnc), 
+      box-shadow var(--trans-time) var(--trans-fnc),
+      translate var(--trans-time) var(--trans-fnc);
+    cursor: var(--btn_cursor, pointer);
+    box-shadow: 0 .5em .5em .1em var(--btn_shadow-color, var(--color-transparent));
 
-    .button {
-        --shadow-alpha: .3;
-        --button-min-width: 18rem;
-        --button-border-width: .2rem;
-        --button-background: var(--color-primary);
-        --button-color: #{$color-white};
-        --button-border-color: #{$color-primary};
-        --button-padding: clamp(#{$gap-m}, 5vw, #{$gap-l}) clamp(#{$gap-l}, 5vw, #{$gap-xl});
-        --button-font-size: clamp(#{$gap-s}, 5dvi, #{$gap-l});
-        --button-cursor: pointer;
-        --button-outline: none;
-
-        &--secondary {
-            --button-color: #{$color-white};
-            --button-border-color: #{$color-secondary};
-            --button-background: #{$color-secondary};
-        }
+    @include mq-hover {
+      --btn_bg: var(--color-primary--hover);
+      --btn_shadow-color: var(--color-shadow);
+      --btn_translate-y: -.25em;
     }
 
-    .button {
-        display: inline-flex;
-        flex-flow: row nowrap;
-        align-items: center;
-        justify-content: center;
-        width: auto;
-        min-width: var(--button-min-width);
-        gap: $gap-m;
-        padding: var(--button-padding);
-        background-color: var(--button-background);
-        border-radius: 100vmax;
-        font-family: var(--font-title);
-        font-size: var(--button-font-size);
-        color: var(--button-color);
-        text-align: center;
-        text-decoration: none;
-        text-transform: uppercase;
-        transition: background-color $trans-time ease-in-out;
-        cursor: pointer;
-
-        &:focus:not(:focus-visible) {
-            outline: var(--button-outline);
-        }
-
-        @include mq-hover {
-            --button-background: var(--color-primary--hover);
-        }
-
-        >.icon {
-            --icon-size: 1.2em;
-            fill: var(--button-color);
-        }
+    &[disabled] {
+      --btn_cursor: not-allowed;
     }
+
+    &--secondary {
+      --btn_color: var(--color-primary);
+      --btn_bg: var(--color-transparent);
+      --btn_border-color: var(--color-primary);
+      backdrop-filter: blur(0.5em);
+
+      @include mq-hover {
+        --btn_color: var(--color-primary--hover);
+        --btn_bg: var(--color-transparent);
+        --btn_border-color: var(--color-primary--hover);
+      }
+    }
+
+    &--small{
+      --btn_pad-block: #{$gap-m};
+      --btn_pad-inline: #{$gap-l};
+      --btn_border-radius: .25em;
+      --btn_min-width: 0;
+      box-shadow: 0 .2em .25em .1em var(--btn_shadow-color, var(--color-transparent));
+
+      @include mq-hover {
+        --btn_translate-y: 0;
+      }
+    }
+
+    > .icon {
+      --icon_size: 1.2em;
+      fill: currentColor;
+    }
+  }
 }
