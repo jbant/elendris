@@ -13,7 +13,11 @@ import Card from "../components/card/Card.astro";
 		<Header />
 		<main>
 			<slot />
-			<section>
+			<section id="rooms">
+				<div class="container">
+					<h2 class="title">Naše pokoje</h2>
+					<p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate veritatis nesciunt tempora impedit nam quibusdam mollitia excepturi laudantium, nisi itaque?</p>
+				</div>
 				<div class="rooms">
 					<Card title="Jednolůžkový pokoj" imgSrc="/images/rooms/rooms-1-1.webp" onClick={() => {console.log("Clicked 1")}} />
 					<Card title="Dvoulůžkový pokoj" imgSrc="/images/rooms/rooms-1-2.webp" onClick={() => console.log("Clicked 2")} />

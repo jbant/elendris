@@ -5,6 +5,7 @@
 @mixin create-card {
   .rooms {
     @include grid-columns(grid, repeat(var(--rooms-count, 3), minmax($gap-3xl, 1fr)), 0, stretch);
+    margin-block-start: 5svb;
   }
 
   .card {
@@ -25,7 +26,7 @@
     }
 
     &__content {
-      @include flex-set(flex, column, nowrap, $gap-m, center, center, center);
+      @include flex-set(flex, column, nowrap, $gap-l, center, center, center);
       opacity: var(--card-content_opacity, 0);
       transition: opacity $trans-time $trans-fnc;
       z-index: 2;
