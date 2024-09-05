@@ -11,7 +11,7 @@
 
   .header {
     &__container {
-      @include grid-columns(grid, minmax($gap-2xl, 8fr) minmax($gap-2xl, 5fr), 0, stretch, flex-start, stretch);
+      @include grid-columns(grid, minmax($gap-2xl, 5fr) minmax($gap-2xl, 8fr), 0, stretch, flex-start, stretch);
     }
 
     &__content,
@@ -42,8 +42,8 @@
   .anim {
     &__large {
       clip-path: polygon(64% 0, 100% 64%, 13% 100%, 0 33%);
-      inline-size: 60svb;
-      block-size: 65svb;
+      inline-size: 80svb;
+      block-size: 85svb;
       background-image: url(https://elendris.cz/img/gril.webp);
       background-repeat: no-repeat;
       background-size: cover;
@@ -51,6 +51,7 @@
       animation: showLargeImg 0.25s forwards 0.2s;
       transform-origin: center;
       scale: 0;
+      translate: 10svi;
 
       &[data-scroll-anim="true"]{
         scale: 1;

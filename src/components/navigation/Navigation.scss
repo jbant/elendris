@@ -34,7 +34,7 @@
     }
 
     .menu {
-        @include flex-set(inline-flex, row, nowrap, $gap-l, center);
+        @include flex-set(inline-flex, row, nowrap, $gap-xl, center);
         margin: 0;
         list-style: none;
         --nav_color: #{$color-black};
