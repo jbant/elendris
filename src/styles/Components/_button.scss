@@ -21,6 +21,7 @@
     translate: 0 var(--btn_translate-y, 0);
     transition: 
       background-color var(--trans-time) var(--trans-fnc), 
+      border-color var(--trans-time) var(--trans-fnc), 
       box-shadow var(--trans-time) var(--trans-fnc),
       translate var(--trans-time) var(--trans-fnc);
     cursor: var(--btn_cursor, pointer);
@@ -29,6 +30,7 @@
     @include mq-hover {
       --btn_bg: var(--color-primary--hover);
       --btn_shadow-color: var(--color-shadow);
+      --btn_border-color: var(--color-primary--hover);
       --btn_translate-y: -.25em;
     }
 
@@ -49,10 +51,21 @@
       }
     }
 
+    &--light{
+      --btn_color: var(--color-primary);
+      --btn_bg: var(--color-white);
+      --btn_border-color: var(--color-white);
+
+      @include mq-hover {
+        --btn_color: var(--color-primary);
+        --btn_bg: var(--color-white);
+        --btn_border-color: var(--color-white);
+      }
+    }
+
     &--small{
       --btn_pad-block: #{$gap-m};
       --btn_pad-inline: #{$gap-l};
-      --btn_border-radius: #{$gap-s};
       --btn_min-width: 0;
       box-shadow: 0 .2em .25em .1em var(--btn_shadow-color, var(--color-transparent));
 

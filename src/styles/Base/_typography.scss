@@ -7,27 +7,27 @@
     }
 
     h1, h2, h3, h4, h5, h6 {
-        text-wrap: balance;
-        font-weight: 700;
         margin: 0;
+        font-weight: 700;
+        text-wrap: balance;
     }
 
     h2{
-        font-weight: 900;
-        font-size: clamp($gap-3xl, 8svb, 8rem);
         margin-block-end: clamp($gap-l, 4svb, $gap-3xl);
+        font-size: clamp($gap-3xl, 8svb, 8rem);
+        font-weight: 900;
     }
 
     h3{
-        font-size: clamp($gap-xl, 4svb, 4rem);
         margin-block-end: clamp($gap-l, 4svb, $gap-3xl);
+        font-size: clamp($gap-xl, 4svb, 4rem);
     }
 
     p{
+        max-inline-size: 65ch;
         margin: 0;
         font-size: clamp(18px, 2.5svb, 22px);
         line-height: 1.7;
-        max-inline-size: 65ch;
         text-wrap: pretty;
     }
 
