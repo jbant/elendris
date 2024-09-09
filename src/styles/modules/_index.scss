@@ -1,6 +1,6 @@
 @use "container" as *;
 @use "section" as *;
-@use "../../../src/components/header/Header" as *;
+@use "../../../src/sections/header/Header" as *;
 
 @mixin create-modules {
     @include create-container;

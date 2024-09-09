@@ -1,0 +1,38 @@
+---
+interface Props {
+  id: string;
+  title: string;
+  imgSrc: string;
+  price: number;
+}
+
+const {id, title, imgSrc, price } = Astro.props;
+---
+
+<button class="card" >
+  <img src={imgSrc} alt={title} />
+
+  <div class="card__content">
+    <strong>{title}</strong>
+    <div class="btn btn--small btn--light">Zobrazit detail</div>
+  </div>
+</button>
+
+<dialog class="detail" open={false}>
+  <div class="detail__header">
+    <h3>{title}</h3>
+    <button class="header__close" aria-label="Close detail">X</button>
+  </div>
+  <div class="detail__content">
+    <slot name="room-description"/>
+    <h4>Vybavení pokoje</h4>
+    <slot name="room-facilities"/>
+  </div>
+  <div class="detail__footer">
+    <div class="detail__price">
+      <span>Cena od / noc</span>
+      <strong>{`${price.toString()} Kč`}</strong>
+    </div>
+    <button class="btn">Rezervovat</button>
+  </div>
+</dialog>

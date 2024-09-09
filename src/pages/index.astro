@@ -1,9 +1,9 @@
 ---
 import Helmet from "../components/helmet/Helmet.astro";
-import Header from "../components/header/Header.astro";
+import Header from "../sections/header/Header.astro";
 import Navigation from "../components/navigation/Navigation.astro";
 import i18next from "i18next";
-import Card from "../components/card/Card.astro";
+import Rooms from "../sections/rooms/Rooms.astro";
 ---
 
 <html lang={i18next.language}>
@@ -13,20 +13,7 @@ import Card from "../components/card/Card.astro";
 		<Header />
 		<main>
 			<slot />
-			<section id="rooms">
-				<div class="container">
-					<h2 class="title">Naše pokoje</h2>
-					<p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate veritatis nesciunt tempora impedit nam quibusdam mollitia excepturi laudantium, nisi itaque?</p>
-				</div>
-				<div class="rooms">
-					<Card title="Jednolůžkový pokoj" imgSrc="/images/rooms/rooms-1-1.webp" onClick={() => {console.log("Clicked 1")}} />
-					<Card title="Dvoulůžkový pokoj" imgSrc="/images/rooms/rooms-1-2.webp" onClick={() => console.log("Clicked 2")} />
-					<Card title="Třílůžkový pokoj" imgSrc="/images/rooms/rooms-1-3.webp" onClick={() => console.log("Clicked 3")} />
-					<Card title="Rodinný pokoj" imgSrc="/images/rooms/rooms-1-4.webp" onClick={() => console.log("Clicked 4")} />
-					<Card title="Rodinný pokoj s kuchyňským koutem" imgSrc="/images/rooms/rooms-1-5.webp" onClick={() => console.log("Clicked 5")} />
-					<Card title="Pokoj s vanou" imgSrc="/images/rooms/rooms-1-6.webp" onClick={() => console.log("Clicked 6")} />
-				</div>
-			</section>
+			<Rooms id="rooms">
 			<section></section>
 			<section></section>
 			<section></section>
