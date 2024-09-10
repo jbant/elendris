@@ -66,16 +66,10 @@
     }
   }
 
-  body:has(dialog[open]) {
-    overflow: hidden;
-    padding-inline-end: $gap-l;
-  }
-
   .detail {
     @include grid-rows(var(--detail_display, none), auto 1fr auto, 2svi, stretch, stretch);
     opacity: var(--detail_opacity, 0);
     translate: var(--detail_trans-x, 100%) 0 ;
-    position: fixed;
     inset: 0 0 0 auto;
     inline-size: min($width-desktop-s, 100%);
     block-size: 100svb;
@@ -99,13 +93,6 @@
         --dialog_opacity: 0;
         --detail_trans-x: 100%;
       }
-    }
-
-    &::backdrop {
-      position: fixed;
-      inset: 0;
-      background: hsl(from #{$color-black} h s l / 0.65);
-      backdrop-filter: blur($gap-l);
     }
 
     &__header {
