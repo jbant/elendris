@@ -4,10 +4,13 @@
 
 @mixin create-reservation {
     .reservation {
+        background-color: $color-white;
+        border-radius: 1em;
         inline-size: $width-desktop-s;
         top: 50%;
         left: 50%;
         translate: -50% -50%;
+        margin: 0;
 
        > form{
             @include grid-columns(grid, repeat(var(--form-col-count, 2), 1fr), $gap-xl, stretch);
@@ -16,11 +19,32 @@
         fieldset {
             @include grid-columns(grid, repeat(var(--form-col-count, 2), 1fr), $gap-l, stretch);
             row-gap: $gap-m;
+            border: none;
+
+            &:has(select){
+                @include grid-columns(grid, 1fr auto, $gap-l, flex-end);
+            }
+
+            p:has(+ div){
+                display: none;
+            }
         }
 
         label{
             display: grid;
             gap: $gap-s;
+        }
+
+        .room-row{
+            @include grid-columns(grid, 1fr 80px auto, $gap-l, flex-end);
+        }
+
+        input, select{
+            padding: $gap-m;
+            font-size: $gap-l;
+            border-radius: .5em;
+            border: 1px solid $color-black;
+            min-width: 0;
         }
     }
 }

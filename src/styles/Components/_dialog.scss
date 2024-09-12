@@ -11,6 +11,7 @@
         position: fixed;
         isolation: isolate;
         z-index: 9999;
+        border: none;
 
         &::backdrop {
             position: fixed;

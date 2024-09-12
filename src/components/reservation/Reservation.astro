@@ -1,62 +1,72 @@
-<dialog class="reservation" open>
-    <form action="">
-       <div>
-        <fieldset>
-            <legend>Termín</legend>
-            <label>
-                Od
-                <input type="date" name="from" required />
-            </label>
-            <label>
-                Do
-                <input type="date" name="to" required />
-            </label>
-        </fieldset>
-        <fieldset>
-            <legend>Pokoje</legend>
-          <div id="roomRow">
-           <p>Nemáte vybranej žádnej pokoj</p>
-          </div>
-            <button type="button" id="addRoom">
-                Přidat pokoj
-            </button>
-        </fieldset>
-       </div>
-        <fieldset>
-            <legend>Objednatel</legend>
-            <label>
-                Jméno
-                <input type="text" name="name" required />
-            </label>
-            <label>
-                Příjmení
-                <input type="text" name="surname" required />
-            </label>
-            <label>
-                E-mail
-                <input type="email" name="email" required />
-            </label>
-            <label>
-                Telefon
-                <input type="tel" name="phone" required />
-            </label>
-        </fieldset>
-    </form>
+<dialog class="reservation">
+  <form action="">
+    <div>
+      <fieldset>
+        <legend>Termín</legend>
+        <label>
+          Od
+          <input type="date" name="from" required />
+        </label>
+        <label>
+          Do
+          <input type="date" name="to" required />
+        </label>
+      </fieldset>
+      <fieldset>
+        <legend>Pokoje</legend>
+        <div id="roomRow">
+          <p>Nemáte vybranej žádnej pokoj</p>
+        </div>
+        <button type="button" id="addRoom"> Přidat pokoj </button>
+      </fieldset>
+    </div>
+    <fieldset>
+      <legend>Objednatel</legend>
+      <label>
+        Jméno
+        <input type="text" name="name" required />
+      </label>
+      <label>
+        Příjmení
+        <input type="text" name="surname" required />
+      </label>
+      <label>
+        E-mail
+        <input type="email" name="email" required />
+      </label>
+      <label>
+        Telefon
+        <input type="tel" name="phone" required />
+      </label>
+    </fieldset>
+  </form>
 </dialog>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const addRoomButton = document.getElementById('addRoom');
-        let roomCounter = 0; // Counter to keep track of the number of rooms added
+  document.addEventListener("DOMContentLoaded", () => {
+    const reservationDialog = document.querySelector(
+      ".reservation"
+    ) as HTMLDialogElement;
+    const navReservationBtn = document.getElementById(
+      "navReservationBtn"
+    ) as HTMLButtonElement;
 
-        if (addRoomButton) {
-            addRoomButton.addEventListener('click', function() {
-                const roomRow = document.getElementById('roomRow');
-                if (roomRow) {
-                    roomCounter++; // Increment the counter for each new room
-                    const newRoomContent = document.createElement('div');
-                    newRoomContent.innerHTML = `
-                        <label>
+    navReservationBtn.addEventListener("click", () => {
+      reservationDialog.showModal();
+    });
+
+    const addRoomButton = document.getElementById("addRoom");
+    let roomCounter = 0; // Counter to keep track of the number of rooms added
+
+    if (addRoomButton) {
+      addRoomButton.addEventListener("click", function () {
+        const roomRow = document.getElementById("roomRow");
+        if (roomRow) {
+          roomCounter++; // Increment the counter for each new room
+          const newRoomContent = document.createElement("div");
+          newRoomContent.innerHTML = `
+                        <div class="room-row">
+                          <label>
                             Zvolte pokoj
                             <select name="rooms${roomCounter}" required>
                                 <option value="room1">Room 1</option>
@@ -69,18 +79,20 @@
                         </label>
                         <label>
                             Počet osob
-                            <input type="number" name="persons${roomCounter}" required />
+                            <input type="number" min="0" name="persons${roomCounter}" required />
                         </label>
-                        <button type="button" class="deleteRoom">Delete</button>
+                        <button type="button" class="deleteRoom btn btn--secondary btn--small">Delete</button>
+                      </div>
                     `;
-                    roomRow.appendChild(newRoomContent);
+          roomRow.appendChild(newRoomContent);
 
-                    const deleteButton = newRoomContent.querySelector('.deleteRoom');
-                    deleteButton && deleteButton.addEventListener('mousedown', () => {
-                        roomRow.removeChild(newRoomContent);
-                    });
-                }
+          const deleteButton = newRoomContent.querySelector(".deleteRoom");
+          deleteButton &&
+            deleteButton.addEventListener("mousedown", () => {
+              roomRow.removeChild(newRoomContent);
             });
         }
-    });
+      });
+    }
+  });
 </script>

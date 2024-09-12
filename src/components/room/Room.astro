@@ -9,7 +9,7 @@ interface Props {
 const {id, title, imgSrc, price } = Astro.props;
 ---
 
-<button class="card" >
+<button class="card" id={`card-${id}`}>
   <img src={imgSrc} alt={title} />
 
   <div class="card__content">
@@ -18,7 +18,7 @@ const {id, title, imgSrc, price } = Astro.props;
   </div>
 </button>
 
-<dialog class="detail" open={false}>
+<dialog class="detail" open={false} id={`dialog-${id}`}>
   <div class="detail__header">
     <h3>{title}</h3>
     <button class="detail__close" aria-label="Close detail">X</button>
