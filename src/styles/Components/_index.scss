@@ -1,15 +1,19 @@
 @use "burger" as *;
 @use "button" as *;
+@use "dialog" as *;
 @use "icon" as *;
 @use "link" as *;
 @use "../../components/room/Room" as *;
 @use "../../components/navigation/Navigation" as *;
+@use "../../components/reservation/Reservation" as *;
 
 @mixin create-components {
     @include create-burger;
     @include create-button;
     @include create-card;
+    @include create-dialog;
     @include create-icon;
     @include create-link;
     @include create-nav;
+    @include create-reservation;
 }

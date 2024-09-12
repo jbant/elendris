@@ -1,0 +1,26 @@
+@use "../../styles/base/mixins/index" as *;
+@use "../../styles/base/functions/index" as *;
+@use "../../styles/base/variables/index" as *;
+
+@mixin create-reservation {
+    .reservation {
+        inline-size: $width-desktop-s;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+
+       > form{
+            @include grid-columns(grid, repeat(var(--form-col-count, 2), 1fr), $gap-xl, stretch);
+        }
+    
+        fieldset {
+            @include grid-columns(grid, repeat(var(--form-col-count, 2), 1fr), $gap-l, stretch);
+            row-gap: $gap-m;
+        }
+
+        label{
+            display: grid;
+            gap: $gap-s;
+        }
+    }
+}

@@ -4,20 +4,17 @@ import Header from "../sections/header/Header.astro";
 import Navigation from "../components/navigation/Navigation.astro";
 import i18next from "i18next";
 import Rooms from "../sections/rooms/Rooms.astro";
+import Reservation from "../components/reservation/Reservation.astro";
 ---
 
 <html lang={i18next.language}>
 	<Helmet title="Elendris | Ubytování u kostela" description="Útulné ubytování v rodinné atmosféře" />
 	<body>
+		<Reservation />
 		<Navigation />
 		<Header />
 		<main>
-			<slot />
 			<Rooms id="rooms">
-			<section></section>
-			<section></section>
-			<section></section>
-			<section></section>
 		</main>
 	</body>
 </html>
