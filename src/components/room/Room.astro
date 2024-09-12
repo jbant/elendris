@@ -21,7 +21,7 @@ const {id, title, imgSrc, price } = Astro.props;
 <dialog class="detail" open={false}>
   <div class="detail__header">
     <h3>{title}</h3>
-    <button class="header__close" aria-label="Close detail">X</button>
+    <button class="detail__close" aria-label="Close detail">X</button>
   </div>
   <div class="detail__content">
     <slot name="room-description"/>
