@@ -7,10 +7,26 @@
         background-color: $color-white;
         border-radius: 1em;
         inline-size: $width-desktop-s;
-        top: 50%;
+        top: 25svb;
         left: 50%;
-        translate: -50% -50%;
         margin: 0;
+        display: var(--dialog_display, none);
+        opacity: var(--dialog_opacity, 0);
+        translate: -50% var(--dialog_trans-y, 5svb);
+        transition-property: overlay display opacity;
+        transition-duration: .3s;
+        transition-behavior: allow-discrete;
+
+        &[open]{
+            --dialog_display: block;
+            --dialog_opacity: 1;
+            --dialog_trans-y: 0;
+            
+            @starting-style{
+              --dialog_opacity: 0;
+              --dialog_trans-y: 5svb;
+            }
+          }
 
        > form{
             @include grid-columns(grid, repeat(var(--form-col-count, 2), 1fr), $gap-xl, stretch);

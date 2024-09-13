@@ -1,6 +1,13 @@
+---
+import Icon from "../icons/Icon.astro";
+---
+
 <nav>
     <div class="nav__top">
-        <a href="tel: +420758695456" class="link">+420 758 695 456</a>
+        <a href="tel: +420758695456" class="link">
+            <Icon name="phone" />
+            +420 758 695 456
+        </a>
         <div>Lang</div>
     </div>
     <hr />
@@ -26,7 +33,7 @@
             </li>
         </ul>
         <div class="d-flex gap-s">
-            <button class="btn btn--small" id="navReservationBtn">Rezervovat</button>
+            <button class="btn btn--small" data-reservation>Rezervovat</button>
             <button id="menuBtn" class="burger"> </button>
         </div>
     </div>

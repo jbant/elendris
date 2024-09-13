@@ -113,6 +113,17 @@
         margin: 0;
         margin-block-end: 5svb;
       }
+
+      ul{
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li{
+          @include flex-set(flex, row, nowrap, $gap-l, center);
+          font-size: large;
+        }
+      }
     }
 
     &__footer {

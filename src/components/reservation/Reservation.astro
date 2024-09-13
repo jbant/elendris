@@ -1,3 +1,7 @@
+---
+import Icon from "../icons/Icon.astro";
+---
+
 <dialog class="reservation">
   <form action="">
     <div>
@@ -17,7 +21,7 @@
         <div id="roomRow">
           <p>Nemáte vybranej žádnej pokoj</p>
         </div>
-        <button type="button" id="addRoom"> Přidat pokoj </button>
+        <button type="button" id="addRoom"> Přidat pokoj <Icon name="plus" /></button>
       </fieldset>
     </div>
     <fieldset>
@@ -44,16 +48,14 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const reservationDialog = document.querySelector(
-      ".reservation"
-    ) as HTMLDialogElement;
-    const navReservationBtn = document.getElementById(
-      "navReservationBtn"
-    ) as HTMLButtonElement;
+    const reservationDialog = document.querySelector(".reservation") as HTMLDialogElement;
+    const reservationButtons = document.querySelectorAll("button[data-reservation]")
 
-    navReservationBtn.addEventListener("click", () => {
-      reservationDialog.showModal();
-    });
+    reservationButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        reservationDialog.showModal();
+      });
+    })
 
     const addRoomButton = document.getElementById("addRoom");
     let roomCounter = 0; // Counter to keep track of the number of rooms added

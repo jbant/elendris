@@ -9,9 +9,9 @@
     
     dialog {
         position: fixed;
+        border: none;
         isolation: isolate;
         z-index: 9999;
-        border: none;
 
         &::backdrop {
             position: fixed;
