@@ -1,6 +1,7 @@
 @use "burger" as *;
 @use "button" as *;
 @use "dialog" as *;
+@use "form-item" as *;
 @use "icon" as *;
 @use "link" as *;
 @use "../../components/room/Room" as *;
@@ -12,6 +13,7 @@
     @include create-button;
     @include create-card;
     @include create-dialog;
+    @include create-form-item;
     @include create-icon;
     @include create-link;
     @include create-nav;

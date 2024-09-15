@@ -23,10 +23,10 @@ const {id, title, imgSrc, price } = Astro.props;
 <dialog class="detail" open={false} id={`dialog-${id}`}>
   <div class="detail__header">
     <h3>{title}</h3>
-    <button class="detail__close" aria-label="Close detail">
+   
+  </div> <button class="detail__close" aria-label="Close detail">
       <Icon name="close" />
     </button>
-  </div>
   <div class="detail__content">
     <slot name="room-description"/>
     <h4>Vybavení pokoje</h4>

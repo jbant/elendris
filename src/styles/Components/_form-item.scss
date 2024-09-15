@@ -1,0 +1,59 @@
+@use '../base/mixins/index' as *;
+@use '../base/variables/index' as *;
+
+@mixin create-form-item {
+
+  .form-item{
+    display: grid;
+    gap: $gap-s;
+    color: $color-label; 
+    text-transform: uppercase;
+    position: relative;
+  }
+
+  input, select{
+    padding: $gap-l;
+    font-size: $gap-l;
+    border-radius: $input-border-radius;
+    border: $border-width solid $color-primary;
+    min-width: 0;
+    color: $color-text;
+    font-weight: initial;
+
+    &:not(:placeholder-shown):invalid{
+      outline: $border-width-2 solid red;
+    }
+
+    &:focus:invalid{
+      outline: none;
+    }
+  }
+
+  select{
+    appearance: none;
+
+    + .icon{
+      position: absolute;
+      inset: auto $gap-l $gap-l auto;
+      z-index: 2;
+      color: $color-primary;
+      pointer-events: none;
+    }
+  }
+
+  .check-box{
+    @include flex-set(inline-flex, row, nowrap, $gap-m, center, start);
+    color: $color-text;
+    font-size: large;
+    cursor: pointer;
+    
+    input[type="checkbox"]{
+      inline-size: $gap-xl;
+      display: block;
+      border-radius: $input-border-radius;
+      border: $border-width solid $color-primary;
+      aspect-ratio: 1;
+      cursor: pointer;
+    }
+  }
+}

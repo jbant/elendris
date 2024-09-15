@@ -1,3 +1,5 @@
+@use '../base/variables/colors' as *;
+
 @mixin reset {
     *,
     *::before,
@@ -14,6 +16,7 @@
         margin: 0;
         font-family: system-ui;
         overflow-x: hidden;
+        accent-color:  $color-primary;
     }
 
     textarea {

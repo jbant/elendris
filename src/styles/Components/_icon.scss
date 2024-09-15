@@ -8,5 +8,6 @@
         display: block;
         inline-size: min(var(--icon_size), var(--icon_size));
         aspect-ratio: 1;
+        fill: currentColor;
     }
 }
