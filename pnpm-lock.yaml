@@ -11,6 +11,9 @@ dependencies:
   '@fancyapps/ui':
     specifier: ^5.0.36
     version: 5.0.36
+  '@googlemaps/js-api-loader':
+    specifier: ^1.16.8
+    version: 1.16.8
   astro:
     specifier: ^4.11.3
     version: 4.11.3(sass@1.77.6)(typescript@5.5.2)
@@ -1118,6 +1121,10 @@ packages:
 
   /@fancyapps/ui@5.0.36:
     resolution: {integrity: sha512-GMygQzp1MBTFNTT6AzpbL6pXTD6bTxwjmmpI1fe8Ozmmiseu8/g82Sudl1YhcbZmS4bJgaBOF5THDFGpXQ1fDw==}
+    dev: false
+
+  /@googlemaps/js-api-loader@1.16.8:
+    resolution: {integrity: sha512-CROqqwfKotdO6EBjZO/gQGVTbeDps5V7Mt9+8+5Q+jTg5CRMi3Ii/L9PmV3USROrt2uWxtGzJHORmByxyo9pSQ==}
     dev: false
 
   /@img/sharp-darwin-arm64@0.33.4:
