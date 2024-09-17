@@ -47,7 +47,7 @@ import Icon from "../icons/Icon.astro";
       <p>Zvolte pokoje a počet hostů pro každý pokoj.</p>
       <div class="col-span-2">
         <p class="reservation__empty-message">Nemáte vybraný žádný pokoj!</p>
-        <div id="rooms" class="reservation__room-list"></div>
+        <div id="roomsList" class="reservation__room-list"></div>
         <div class="reservation__actions">
           <label class="check-box" title="Platí pro všehcny pokoje">
             <input type="checkbox" value="" />
@@ -97,7 +97,7 @@ import Icon from "../icons/Icon.astro";
 
     if (addRoomButton) {
       addRoomButton.addEventListener("click", function () {
-        const roomRow = document.getElementById("rooms");
+        const roomRow = document.getElementById("roomsList");
         if (roomRow) {
           roomCounter++; // Increment the counter for each new room
           const newRoomContent = document.createElement("div");

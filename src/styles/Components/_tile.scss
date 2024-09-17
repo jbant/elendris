@@ -1,0 +1,32 @@
+@use "../base/mixins/index" as *;
+@use "../base/variables/index" as *;
+@use "../base/functions/index" as *;
+
+@mixin create-tile {
+  .tiles {
+    @include grid-columns(grid, repeat(var(--tiles-count, 5), minmax($gap-3xl, 1fr)), $gap-3xl, stretch);
+    margin-block-start: 5svb;
+    margin-block-end: 8svb;
+  }
+
+  .tile {
+    @include flex-set(flex, column, nowrap, $gap-xl, center, flex-start);
+    box-shadow: 0 $gap-m $gap-l 0 $color-shadow;
+    padding-block: 3rem;
+    padding-inline: $gap-xl;
+    border-radius: $radius-l;
+    text-align: center;
+    background-color: $color-white;
+
+    > .icon {
+      --icon_size: 100px;
+      fill: $color-secondary;
+    }
+
+    > strong {
+      font-size: large;
+      text-wrap: pretty;
+      font-weight: 500;
+    }
+  }
+}

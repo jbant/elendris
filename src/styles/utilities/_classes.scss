@@ -137,11 +137,20 @@ $displayTypes: (
     }
   }
 
-  .rrow-span {
+  .row-span {
     @for $i from 1 through 12 {
       &-#{$i} {
         @include grid-row-span($i);
       }
     }
+  }
+
+  .center-text{
+    text-align: center;
+  }
+
+  .w-100{
+    max-inline-size: none;
+    inline-size: 100%;
   }
 }
