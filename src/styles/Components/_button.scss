@@ -100,9 +100,9 @@
 
     > .icon {
       --icon_size: var(--btn-icon_size);
-      fill: currentColor;
       scale: var(--btn-icon_scale, 1);
       transition: scale $trans-time $trans-fnc;
+      fill: currentColor;
     }
   }
 }

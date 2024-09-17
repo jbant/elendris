@@ -9,23 +9,39 @@
     color: $color-label; 
     text-transform: uppercase;
     position: relative;
+    isolation: isolate;
+    &:focus-within{
+      z-index: 999;
+    }
   }
 
   input, select{
+    display: block;
     padding: $gap-l;
     font-size: $gap-l;
     border-radius: $input-border-radius;
     border: $border-width solid $color-primary;
     min-width: 0;
     color: $color-text;
+    font-family: $font-text;
+    line-height: 1;
+    outline-offset: -2px;
     font-weight: initial;
+    min-block-size: 50px;
 
-    &:not(:placeholder-shown):invalid{
-      outline: $border-width-2 solid red;
-    }
-
-    &:focus:invalid{
-      outline: none;
+    &:not([type="checkbox"]){
+      &:not(:placeholder-shown):invalid{
+        outline: $border-width-2 solid $color-error;
+      }
+      
+  
+      &:user-valid{
+        outline: $border-width-2 solid $color-success;
+      }
+  
+      &:focus{
+        outline: $border-width-2 solid $color-primary;
+      }
     }
   }
 

@@ -6,7 +6,7 @@ import Icon from "../icons/Icon.astro";
 <dialog class="reservation">
   <form action="post"  class="reservation__form">
     <h3>Rezervační formulář</h3>
-    <button class="reservation__close" type="button" aria-label="Close detail">
+    <button class="reservation__close" type="button" aria-label="Zavřít rezervační formulář" id="reservationClose">
       <Icon name="close" />
     </button>
     <p>
@@ -75,6 +75,13 @@ import Icon from "../icons/Icon.astro";
     const reservationDialog = document.querySelector(
       ".reservation"
     ) as HTMLDialogElement;
+
+    const closeButton = document.getElementById("reservationClose");
+
+    closeButton && closeButton.addEventListener("click", () => {
+      reservationDialog.close();
+    });
+
     const reservationButtons = document.querySelectorAll(
       "button[data-reservation]"
     );

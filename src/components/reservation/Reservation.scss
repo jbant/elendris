@@ -92,6 +92,24 @@
         &__close {
             position: absolute;
             inset: $gap-2xl $gap-2xl auto auto;
+            background-color: $color-transparent;
+            border: none;
+            aspect-ratio: 1;
+            padding: 0;
+            inline-size: $gap-3xl;
+            display: grid;
+            place-items: center;
+            color: $color-primary;
+            cursor: pointer;
+
+            @include mq-hover {
+                --close-icon_scale: 1.15;
+            }
+
+            > .icon{
+                --icon-size: $gap-3xl;
+                scale: var(--close-icon_scale, 1);
+            }
         }
 
         &__empty-message {
