@@ -1,9 +1,11 @@
 @use "container" as *;
 @use "section" as *;
+@use "footer" as *;
 @use "../../../src/sections/header/Header" as *;
 
 @mixin create-modules {
     @include create-container;
     @include create-header;
+    @include create-footer;
     @include create-section;
 }

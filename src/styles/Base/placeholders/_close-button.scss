@@ -21,7 +21,7 @@
 
   > .icon{
       --icon_size: #{$gap-xl};
-      transition: fill $trans-time $trans-fnc, scale $trans-time $trans-fnc;
       scale: var(--close-icon_scale, 1);
+      transition: fill $trans-time $trans-fnc, scale $trans-time $trans-fnc;
   }
 }

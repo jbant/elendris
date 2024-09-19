@@ -6,7 +6,6 @@ import i18next from "i18next";
 import Rooms from "../sections/rooms/Rooms.astro";
 import Reservation from "../components/reservation/Reservation.astro";
 import IconSet from "../components/icons/IconSet.astro";
-import Contact from "../sections/contact/Contact.astro";
 import Icon from "../components/icons/Icon.astro";
 ---
 
@@ -59,5 +58,20 @@ import Icon from "../components/icons/Icon.astro";
 			<Rooms id="rooms">
 				<!-- <Contact id="contact"> -->
 		</main>
+		<footer>
+			<div class="container footer__container">
+				<a href="/" class="footer__logo" rel="noreferer">
+					<img src="/images/logos/elendris-logo.svg" alt="Elendris logo" />
+				</a>
+				<span>Fyzická osoba zapsaná v Živnostenském rejstříku v Magistrát města Brna od 31.8.2016<br>
+					© 2016 - 2024 Elendris s.r.o.</span>
+					<div>
+						<span >
+							Vytvořil
+							<a href="https://lukaschylik.sk/" target="_blank" rel="external" class="link link--light">Lukáš Chylík</a>
+						</span>
+					</div>
+			</div>
+		</footer>
 	</body>
 </html>

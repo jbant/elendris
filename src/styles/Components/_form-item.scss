@@ -4,11 +4,11 @@
 @mixin create-form-item {
 
   .form-item{
+    position: relative;
     display: grid;
     gap: $gap-s;
     color: $color-label; 
     text-transform: uppercase;
-    position: relative;
     isolation: isolate;
     &:focus-within{
       z-index: 999;
@@ -17,17 +17,17 @@
 
   input, select{
     display: block;
-    padding: $gap-l;
-    font-size: $gap-l;
-    border-radius: $input-border-radius;
-    border: $border-width solid $color-primary;
     min-width: 0;
-    color: $color-text;
-    font-family: $font-text;
-    line-height: 1;
-    outline-offset: -2px;
-    font-weight: initial;
     min-block-size: 50px;
+    padding: $gap-l;
+    border: $border-width solid $color-primary;
+    border-radius: $input-border-radius;
+    font-family: $font-text;
+    font-size: $gap-l;
+    font-weight: initial;
+    line-height: 1;
+    color: $color-text;
+    outline-offset: -2px;
 
     &:not([type="checkbox"]){
       &:not(:placeholder-shown):invalid{
@@ -51,24 +51,24 @@
     + .icon{
       position: absolute;
       inset: auto $gap-l $gap-l auto;
-      z-index: 2;
       color: $color-primary;
+      z-index: 2;
       pointer-events: none;
     }
   }
 
   .check-box{
     @include flex-set(inline-flex, row, nowrap, $gap-m, center, start);
-    color: $color-text;
     font-size: large;
+    color: $color-text;
     cursor: pointer;
     
     input[type="checkbox"]{
-      inline-size: $gap-xl;
       display: block;
-      border-radius: $input-border-radius;
-      border: $border-width solid $color-primary;
+      inline-size: $gap-xl;
       aspect-ratio: 1;
+      border: $border-width solid $color-primary;
+      border-radius: $input-border-radius;
       cursor: pointer;
     }
   }

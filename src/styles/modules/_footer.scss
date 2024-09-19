@@ -4,12 +4,12 @@
 @mixin create-footer {
   footer {
     padding-block: 3svb;
-    color: $color-white;
     background-color: $color-black;
+    color: $color-white;
 
     span {
-      font-size: small;
       margin: 0;
+      font-size: small;
       text-align: center;
     }
   }
