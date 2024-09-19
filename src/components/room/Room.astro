@@ -1,5 +1,5 @@
 ---
-import Icon from '../icons/Icon.astro';
+import Icon from "../icons/Icon.astro";
 
 interface Props {
   id: string;
@@ -8,7 +8,7 @@ interface Props {
   price: number;
 }
 
-const {id, title, imgSrc, price } = Astro.props;
+const { id, title, imgSrc, price } = Astro.props;
 ---
 
 <button class="card" id={`card-${id}`}>
@@ -23,12 +23,32 @@ const {id, title, imgSrc, price } = Astro.props;
 <dialog class="detail" open={false} id={`dialog-${id}`}>
   <div class="detail__header">
     <h3>{title}</h3>
-   
-  </div> <button class="detail__close" aria-label="Close detail">
+    <button
+      class="detail__close"
+      aria-label="Zavřít detail pokoje"
+      title="Zavřít detail pokoje"
+    >
       <Icon name="close" />
     </button>
+  </div>
   <div class="detail__content">
-    <slot name="room-description"/>
+    <slot name="room-description" />
+    <div class="gallery">
+      <a
+        href="/"
+        aria-label="Zobrazit fotogalerii"
+        title="Zobrazit fotogalerii"
+        rel="internal"
+        class="gallery__item"
+      >
+        <picture>
+          <img src={imgSrc} alt={title} />
+        </picture>
+        <span class="gallery__item-btn">
+          <Icon name="gallery" />
+        </span>
+      </a>
+    </div>
     <h4>Vybavení pokoje</h4>
     <ul>
       <li>
