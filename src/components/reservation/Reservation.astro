@@ -4,9 +4,15 @@ import Icon from "../icons/Icon.astro";
 ---
 
 <dialog class="reservation">
-  <form action="post"  class="reservation__form">
+  <form action="post" class="reservation__form">
     <h3>Rezervační formulář</h3>
-    <button class="reservation__close" type="button" aria-label="Zavřít rezervační formulář" id="reservationClose">
+    <button
+      class="reservation__close"
+      type="button"
+      aria-label="Zavřít rezervační formulář"
+      title="Zavřít rezervační formulář"
+      id="reservationClose"
+    >
       <Icon name="close" />
     </button>
     <p>
@@ -35,7 +41,12 @@ import Icon from "../icons/Icon.astro";
           <input type="text" placeholder="Novák" name="surname" required />
         </FormItem>
         <FormItem label="E-mail">
-          <input type="email" placeholder="jan@novak.cz" name="email" required />
+          <input
+            type="email"
+            placeholder="jan@novak.cz"
+            name="email"
+            required
+          />
         </FormItem>
         <FormItem label="Telefon">
           <input type="tel" placeholder="+420123456789" name="phone" required />
@@ -78,9 +89,10 @@ import Icon from "../icons/Icon.astro";
 
     const closeButton = document.getElementById("reservationClose");
 
-    closeButton && closeButton.addEventListener("click", () => {
-      reservationDialog.close();
-    });
+    closeButton &&
+      closeButton.addEventListener("click", () => {
+        reservationDialog.close();
+      });
 
     const reservationButtons = document.querySelectorAll(
       "button[data-reservation]"
@@ -145,5 +157,5 @@ import Icon from "../icons/Icon.astro";
         }
       });
     }
-});
+  });
 </script>
