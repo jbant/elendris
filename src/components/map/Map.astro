@@ -6,6 +6,13 @@
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDL2nvxZgXk8NXOQmhizNX4HgrH5WbJnYk"
 ></script>
 <script>
+  // Declare the google object globally
+  declare global {
+    interface Window {
+      google: any;
+    }
+  }
+
   function initMap() {
     // Set the coordinates for the center of the map
     var center = { lat: 49.17764, lng: 16.69207 };
