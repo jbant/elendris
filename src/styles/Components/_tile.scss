@@ -17,6 +17,16 @@
     border-radius: $radius-l;
     text-align: center;
     box-shadow: 0 $gap-m $gap-l 0 $color-shadow;
+    animation: fadeIn linear forwards;
+    opacity: 0;
+    animation-timeline: view();
+
+    @for $i from 1 through 5 {
+      &:nth-child(#{$i}) {
+        animation-range-end: contain calc(30svb + #{$i *32}px);
+        animation-range-start: contain calc(20svb + #{$i * 32}px);
+      }
+    }
 
     > .icon {
       --icon_size: 100px;
@@ -27,6 +37,12 @@
       font-size: large;
       font-weight: 500;
       text-wrap: pretty;
+    }
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
     }
   }
 }

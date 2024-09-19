@@ -4,5 +4,9 @@
 @mixin create-section {
     section {
         padding-block: 5svb;
+
+        &:is(#about){
+            // scroll-timeline-name: --aboutTimeline;
+        }
     }
 }
