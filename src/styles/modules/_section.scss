@@ -3,10 +3,10 @@
 
 @mixin create-section {
     section {
-        padding-block: 5svb;
+        padding-block: var(--sec_padding, 5svb);
 
-        &:is(#about){
-            // scroll-timeline-name: --aboutTimeline;
+        &:is(#contact){
+            --sec_padding: 0;
         }
     }
 }
