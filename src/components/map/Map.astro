@@ -1,3 +1,7 @@
+---
+import Icon from "../icons/Icon.astro"
+---
+
 <div id="map" style="height: 100svb;"></div>
 
 <script
@@ -15,21 +19,65 @@
 
   function initMap() {
     // Set the coordinates for the center of the map
-    var center = { lat: 49.17764, lng: 16.69207 };
+    var center = { lat: 49.19055, lng: 16.50246 };
     // Create a new Google Maps object
     var map = new google.maps.Map(document.getElementById("map"), {
       center: center,
-      zoom: 17,
+      zoom: 12,
       disableDefaultUI: true,
       options: {
         gestureHandling: "cooperative",
       },
     });
 
-    // Add a marker to the map
-    var marker = new google.maps.Marker({
-      position: center,
-      map: map,
+    // Define an array of marker data
+    var markersData = [
+      {
+        position: { lat: 49.17764, lng: 16.69207 },
+        title: "Elendris",
+        icon: '/images/map/marker.svg', 
+      },
+      {
+        position: { lat:49.18160, lng: 16.668712 },
+        title: "BRuNO family park",
+        link: "https://www.brunofamilypark.cz/",
+        icon: '/images/map/star.svg', 
+      },
+      {
+        position: { lat:49.15901, lng: 16.86439 },
+        title: "Mistrovské golfové hřiště Austerlitz",
+        link: "https://www.agrt.cz/",
+        icon: '/images/map/star.svg', 
+      },
+      {
+        position: { lat:49.194828, lng: 16.60857 },
+        title: "Historickém centrum města Brna",
+        link: "https://www.gotobrno.cz/",
+        icon: '/images/map/star.svg', 
+      },
+      {
+        position: { lat:49.30782, lng: 16.69971},
+        title: "Krásy Moravského krasu",
+        link: "https://www.moravskykras.net/",
+        icon: '/images/map/star.svg', 
+      },
+    ];
+
+    // Iterate over the markersData array to create markers and info windows
+    markersData.forEach((data) => {
+      var marker = new google.maps.Marker({
+        position: data.position,
+        map: map,
+        icon: data.icon, // Set the custom icon
+      });
+
+      var infoWindow = new google.maps.InfoWindow({
+        content: `<div class="map__window"><strong>${data.title}</strong><a href="${data.link}" target="_blank" rel="external" class="link">Více informací</a></div>`,
+      });
+
+      marker.addListener('click', function() {
+        infoWindow.open(map, marker);
+      });
     });
   }
 
