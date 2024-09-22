@@ -28,7 +28,7 @@
       align-items: center;
       font-size: clamp($gap-2xl, 8svb, 6.5rem);
       line-height: 1;
-      
+
       h1 {
         translate: num-neg($gap-l);
       }
@@ -41,54 +41,66 @@
 
   .anim {
     position: relative;
-    &__large {
-      clip-path: polygon(64% 0, 100% 64%, 13% 100%, 0 33%);
-      inline-size: 80svb;
-      block-size: 85svb;
-      background-image: url(https://elendris.cz/img/gril.webp);
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center right;
-      animation: showImg $trans-time forwards 0.2s;
-      transform-origin: center;
-      scale: 0;
-      translate: 10svi;
 
-      &[data-scroll-anim="true"]{
+    &__pic {
+      transform-origin: center;
+      animation: showImg $trans-time forwards $trans-time;
+      scale: 0;
+      translate: var(--anim-pic_trans-x);
+      block-size: var(--anim-pic_height);
+      clip-path: var(--anim-pic_clip-path);
+      background-color: $color-primary;
+      animation: showImg $trans-time forwards var(--anim-pic_anim-delay);
+
+      &[data-scroll-anim="true"] {
         scale: 1;
-        animation: animLargeImg linear;
+        animation: var(--anim-pic_animation);
         animation-timeline: view();
-        animation-range-start: 83svb;
+        animation-range-start: 100svb;
         animation-range-end: cover;
       }
-    }
 
-    &__small {
-      position: absolute;
-      inset: 0 0 auto auto;
-      clip-path: polygon(0 31%, 52% 0, 85% 94%, 11% 100%);
-      inline-size: 40svb;
-      block-size: 40svb;
-      background-image: linear-gradient(135deg, $color-primary, $color-secondary);
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center right;
-      animation: showImg $trans-time forwards 0.35s;
-      transform-origin: center;
-      scale: 0;
-      translate: 10svi;
-
-      &[data-scroll-anim="true"]{
-        scale: 1;
-        animation: animSmallImg linear;
-        animation-timeline: view();
-        animation-range-start: 83svb;
-        animation-range-end: cover;
+      &:after {
+        display: block;
+        content: "";
+        position: absolute;
+        clip-path: inherit;
+        inset: 0;
+        background-image: var(--anim-pic_bg-img);
+        background-size: cover;
+        background-position: var(--anim-pic_bg-position);
+        background-repeat: no-repeat;
+        translate: var(--anim-pic-after_trans-x);
+        scale: var(--anim-pic-after_scale);
       }
-    }
 
-    &__small{
+      &--large {
+        --anim-pic_bg-img: url("/images/header/header-img-1.webp");
+        --anim-pic_clip-path: polygon(64% 0, 100% 64%, 13% 100%, 0 33%);
+        --anim-pic_animation: animLargeImg linear;
+        --anim-pic_trans-x: 5svi;
+        --anim-pic-after_trans-x: #{num-neg($gap-xs)};
+        --anim-pic-after_scale: 0.975;
+        --anim-pic_bg-position: center;
+        --anim-pic_height: 85svb;
+        --anim-pic_anim-delay: #{$trans-time};
+        aspect-ratio: 1;
+      }
 
+      &--small {
+        --anim-pic_bg-img: url("/images/header/header-img-2.webp");
+        --anim-pic_clip-path: polygon(0 31%, 52% 0, 85% 94%, 11% 100%);
+        --anim-pic_animation: animSmallImg linear;
+        --anim-pic_trans-x: 10svi;
+        --anim-pic-after_trans-x: #{num-neg($gap-s)};
+        --anim-pic-after_scale: 0.95;
+        --anim-pic_bg-position: center center;
+        --anim-pic_height: 40svb;
+        --anim-pic_anim-delay: #{calc($trans-time * 2)};
+        position: absolute;
+        inset: 0 0 auto auto;
+        inline-size: 50svb;
+      }
     }
   }
 }
@@ -104,7 +116,6 @@
     clip-path: polygon(31% 0, 100% 34%, 41% 100%, 0 53%);
   }
 }
-
 
 @keyframes animSmallImg {
   to {

@@ -14,12 +14,12 @@
     padding-block: 3rem;
     padding-inline: $gap-xl;
     background-color: $color-white;
+    opacity: 0;
     border-radius: $radius-l;
     text-align: center;
-    box-shadow: 0 $gap-m $gap-l 0 $color-shadow;
     animation: fadeIn linear forwards;
-    opacity: 0;
     animation-timeline: view();
+    box-shadow: 0 $gap-m $gap-l 0 $color-shadow;
 
     @for $i from 1 through 5 {
       &:nth-child(#{$i}) {

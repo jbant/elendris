@@ -12,8 +12,8 @@
     </div>
     <div class="header__anim">
       <div class="anim">
-        <div class="anim__large" data-scroll-anim="false"></div>
-        <div class="anim__small" data-scroll-anim="false"></div>
+        <div class="anim__pic anim__pic--large" data-scroll-anim="false"></div>
+        <div class="anim__pic anim__pic--small" data-scroll-anim="false"></div>
       </div>
     </div>
   </div>
@@ -21,11 +21,14 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const animLargeElement = document.querySelector(".anim__large");
-    if (animLargeElement !== null) {
+    const animPics = document.querySelectorAll(".anim__pic");
+
+    if (animPics) {
       setTimeout(() => {
-        animLargeElement.setAttribute("data-scroll-anim", "true");
-      }, 500);
+        animPics.forEach((picture) => {
+          picture.setAttribute("data-scroll-anim", "true");
+        });
+      }, 750);
     }
   });
 </script>
