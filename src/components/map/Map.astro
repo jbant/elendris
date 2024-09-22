@@ -2,7 +2,7 @@
 import Icon from "../icons/Icon.astro"
 ---
 
-<div id="map" style="height: 100svb;"></div>
+<div id="map" class="map"></div>
 
 <script
   async
@@ -40,24 +40,28 @@ import Icon from "../icons/Icon.astro"
       {
         position: { lat:49.18160, lng: 16.668712 },
         title: "BRuNO family park",
+        pic: 'https://elendris.cz/img/bruno.webp', 
         link: "https://www.brunofamilypark.cz/",
         icon: '/images/map/star.svg', 
       },
       {
         position: { lat:49.15901, lng: 16.86439 },
         title: "Mistrovské golfové hřiště Austerlitz",
+        pic: 'https://elendris.cz/img/austerlitz.webp', 
         link: "https://www.agrt.cz/",
         icon: '/images/map/star.svg', 
       },
       {
         position: { lat:49.194828, lng: 16.60857 },
         title: "Historickém centrum města Brna",
+        pic: 'https://elendris.cz/img/brno.webp', 
         link: "https://www.gotobrno.cz/",
         icon: '/images/map/star.svg', 
       },
       {
         position: { lat:49.30782, lng: 16.69971},
         title: "Krásy Moravského krasu",
+        pic: 'https://elendris.cz/img/moravskykras.webp', 
         link: "https://www.moravskykras.net/",
         icon: '/images/map/star.svg', 
       },
@@ -72,7 +76,15 @@ import Icon from "../icons/Icon.astro"
       });
 
       var infoWindow = new google.maps.InfoWindow({
-        content: `<div class="map__window"><strong>${data.title}</strong><a href="${data.link}" target="_blank" rel="external" class="link">Více informací</a></div>`,
+        content: `<div class="map__window">
+          <img src="${data.pic}" alt="${data.title}" width="370px" height="143px" loading="lazy"/>
+          <div>
+            <strong>${data.title}</strong>
+            <a href="${data.link}" target="_blank" rel="external" class="link">
+              Více informací
+            </a>
+          </div>
+        </div>`,
       });
 
       marker.addListener('click', function() {
